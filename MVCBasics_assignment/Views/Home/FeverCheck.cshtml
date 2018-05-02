@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "FeverCheck";
+}
+
+<h2>CheckFever</h2>
+
+<form action="/Home/CompareTemp/" method="post">
+    <div>
+
+    Enter Temp:<input type="number" name="newNumber" id="msg">
+    <input type="radio" id="tempChoice1"
+           name="Temperature" value="Celsius" checked>
+    <label for="tempChoice1">Celsius</label>
+    <input type="radio" id="tempChoice2"
+           name="Temperature" value="Farenheit">
+    <label for="tempChoice2">Farenheit</label>
+
+    </div>
+    <div>
+
+    <input type="submit" value="Submit">
+    </div>
+</form>
+@if (ViewBag.Message != null)
+{
+    <h3>@ViewBag.Message</h3>
+}
+
+
+@*@{int Answer = null;
+    Answer = Console.ReadLine();
+    int hypothermiamax = 35;
+    int normaltemp = 36  37;
+    int fevermin = 38;
+    if  (Answer <= hypothermiamax)
+    {
+        Console.WriteLine("You have hypothermia!");
+    }
+    else if (Answer == normaltemp)
+    {
+        Console.WriteLine("Your just fine!");
+    }
+    else{ Answer >= fevermin}
+    {
+        Console.WriteLine("You have a fever !");
+    }
+}*@
