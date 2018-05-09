@@ -1,0 +1,25 @@
+﻿@using MVCBasics_assignment.Models;
+@{
+    ViewBag.Title = "GuessingGame";
+}
+
+<h2>GuessingGame</h2>
+
+<form method="post">
+    Guess a number between 1 to 100: <input type="number" name="guessednr" id="typednr">
+    <input type="submit" value="submit">
+</form>
+
+@*@if (ViewBag.Message != null)
+{
+    <h3>@ViewBag.Message</h3>
+}*@
+
+@if (Session["guesses"] != null)
+{
+    <h3>@(((Guessmd)Session["guesses"]).msg)</h3>
+    foreach (int item in ((Guessmd)Session["guesses"]).guesses)
+    {
+        <p>@item</p>
+    }
+}

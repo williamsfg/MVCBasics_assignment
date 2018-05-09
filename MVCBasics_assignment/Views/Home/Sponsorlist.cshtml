@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Sponsorlist";
+}
+
+<h2>Sponsorlist</h2>
+
+<form method="post">
+      Please fill in your information:<input type="text" name="Name" value="Name">
+    <input type="number" name="Mobilenumber">
+    <input type="text" name="Email">
+    <input type="submit" value="Submit">
+
+   @if (Session["info"] != null)
+   {
+       foreach(int item in Session["info"].donators)
+       {
+          <p>@item </p>
+       }
+   }
+
+
+</form>
+

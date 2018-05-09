@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVCBasics_assignment.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -72,6 +73,46 @@ namespace MVCBasics_assignment.Controllers
                 }
             }
                 return View("FeverCheck");
-        }               
+        }
+        [HttpGet]
+        public ActionResult GuessingGame()
+        {
+            Guessmd guessmd = new Guessmd();
+            Session["guesses"] = guessmd;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult GuessingGame(int? guessednr)
+        {
+
+            if (guessednr == null)
+            {
+               ViewBag.Message = "Please guess a number";
+                return View();
+            }
+
+            Guessmd guessmd = (Guessmd)Session["guesses"];
+            guessmd.AddGuessNumber((int)guessednr);
+            
+            Session["guesses"] = guessmd;
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Sponsorlist()
+        {
+            Donators donators = new Donators();
+            Session["info"] = donators;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Sponsorlist()
+        {
+
+
+
+            return View();
+        }
     }
 }
